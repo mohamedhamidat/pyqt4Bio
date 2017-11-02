@@ -36,7 +36,7 @@ class Main(QtGui.QMainWindow):
         message_color = COLOR_ERROR
         message = "empty"
         try:
-            if bio_validators.dna(dna): 
+            if bio_validators.is_valid_dna(dna): 
                 message_color = COLOR_SUCCESS
                 if self.ui.translate_to_rna_RadioBtn.isChecked():
                     message = bio_convertors.dna_to_rna(dna)

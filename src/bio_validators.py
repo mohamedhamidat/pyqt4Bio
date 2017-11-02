@@ -1,7 +1,7 @@
 
 DNA_BASES = ["A", "C", "G", "T"]
 
-def dna(sequence):
+def is_valid_dna(sequence):
     """
     if sequence is not a string: 
          raise ValueError("sequence has to be a valid string")
