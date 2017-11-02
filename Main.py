@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Hi everyone 
-This project is in progress ..........
-This is a simple UI developed to do some basic bioinformatics analysis
-using Python3, PyQt4 & Qt Designer 
+Hi everyone, This project is in progress ..........This is a simple UI developed to do some basic bioinformatics analysis using Python3, PyQt4 & Qt Designer 
 """
 __author__  = "Mohamed Hamidat, C# and python Developer, hamidatmohamed@yahoo.fr"
 
