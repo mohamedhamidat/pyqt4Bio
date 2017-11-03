@@ -23,7 +23,7 @@ class Bio_convertorsTests(unittest.TestCase):
 
     def test_clean_sequence(self):
         #Arrange
-        sequence = ">TCAGG"   
+        sequence = ">TCAGg"   
         #Act
         clean_seq = clean_format_sequence(sequence)
         #Assert 
