@@ -1,4 +1,8 @@
 language: python
 python:
   - 3.6
+<<<<<<< HEAD
 scipt: python -m unittest discover "tests/*_tests.py" 
+=======
+script: python -m unittest discover  test/
+>>>>>>> origin/development
