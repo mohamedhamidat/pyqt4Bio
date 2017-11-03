@@ -10,8 +10,9 @@ __author__  = "Mohamed Hamidat, C# and python Developer, hamidatmohamed@yahoo.fr
 
 from PyQt4 import QtGui, QtCore
 from window import Ui_QtBio
-import bio_validators
-import bio_convertors
+from bio_validators import is_valid_dna
+from bio_convertors import dna_to_rna, dna_to_protein
+from bio_formators import clean_format_sequence
 
 HEIGHT = 800
 WIDTH = 1350
@@ -36,12 +37,13 @@ class Main(QtGui.QMainWindow):
         message_color = COLOR_ERROR
         messages = ["please check an option"]
         try:
-            if bio_validators.is_valid_dna(dna): 
+            if is_valid_dna(dna): 
                 message_color = COLOR_SUCCESS
+                clean_dna = clean_format_sequence(dna)
                 if self.ui.translate_to_rna_RadioBtn.isChecked():
-                    messages[0] = bio_convertors.dna_to_rna(dna)
+                    messages[0] = dna_to_rna(clean_dna)
                 elif self.ui.translate_to_prot_RadioBtn.isChecked():
-                    messages = bio_convertors.dna_to_protein(dna)
+                    messages = dna_to_protein(clean_dna)
                 
         except ValueError as ex:
             messages[0] = (str(ex))

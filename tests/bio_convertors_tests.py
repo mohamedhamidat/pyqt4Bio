@@ -1,7 +1,7 @@
 import unittest
 import sys
 sys.path.insert(0, "../src")
-from bio_convertors import dna_to_rna, dna_to_protein, clean_format_sequence, reverse_complement
+from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement
 
 class Bio_convertorsTests(unittest.TestCase):
 
@@ -20,18 +20,10 @@ class Bio_convertorsTests(unittest.TestCase):
         protein = dna_to_protein(sequence)
         #Assert 
         self.assertEqual(protein[0], "S")
-
-    def test_clean_sequence(self):
-        #Arrange
-        sequence = ">TCAGg"   
-        #Act
-        clean_seq = clean_format_sequence(sequence)
-        #Assert 
-        self.assertEqual(clean_seq, "TCAGG")
     
     def test_reverse_complement(self):
         #Arrange
-        sequence = ">TCAGG"   
+        sequence = "TCAGG"   
         #Act
         seq_reversed = reverse_complement(sequence)
         #Assert 
