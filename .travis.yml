@@ -1,4 +1,4 @@
 language: python
 python:
   - 3.6
-scipt: python -m unittest
+scipt: python -m unittest discover .\tests\ "*_tests.py"
