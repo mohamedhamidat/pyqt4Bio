@@ -20,17 +20,17 @@ GENITIC_CODE= {
     'TAC':'Y', 'TAT':'Y', 'TAA':'*', 'TAG':'*',
     'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',}
     
-def clean_sequence(sequence):
+def clean_format_sequence(sequence):
     if sequence.startswith(">"):
         sequence = sequence[1:]
-    return sequence
+    return sequence.upper()
 
 def dna_to_rna(sequence):
-    sequence = clean_sequence(sequence)
+    sequence = clean_format_sequence(sequence)
     return sequence.upper().replace('T', 'U')
 
 def reverse_complement(sequence):
-    sequence = clean_sequence(sequence)
+    sequence = clean_format_sequence(sequence)
     reversed_seq = sequence[::-1]
     seq_reversed_complement = [BASECOMPLEMENT[base] for base in reversed_seq]
     return "".join(seq_reversed_complement)
@@ -39,7 +39,7 @@ def dna_to_protein(sequence):
     """
     return all possible protein (6 open frame)
     """
-    sequence = clean_sequence(sequence)
+    sequence = clean_format_sequence(sequence)
     protein_sequence = []
     for frame in range(3): 
         codons = [sequence[i:i+3] for i in range(frame, len(sequence), 3)]
