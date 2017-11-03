@@ -1,7 +1,7 @@
 import unittest
 import sys
 sys.path.insert(0, "../src")
-from bio_convertors import dna_to_rna, dna_to_protein
+from bio_convertors import dna_to_rna, dna_to_protein, clean_sequence
 
 class Bio_convertorsTests(unittest.TestCase):
 
@@ -20,6 +20,15 @@ class Bio_convertorsTests(unittest.TestCase):
         protein = dna_to_protein(sequence)
         #Assert 
         self.assertEqual(protein[0], "S")
+
+    def test_clean_sequence(self):
+        #Arrange
+        sequence = ">TCAGG"   
+        #Act
+        clean_seq = clean_sequence(sequence)
+        #Assert 
+        self.assertEqual(clean_seq, "TCAGG")
+        
 
 def main():
     unittest.main()

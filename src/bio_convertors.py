@@ -37,7 +37,6 @@ def dna_to_protein(sequence):
     protein_sequence = []
     for frame in range(3): 
         codons = [sequence[i:i+3] for i in range(frame, len(sequence), 3)]
-        print (codons)
         coding_sequence  =  takewhile(lambda x: len(x) == 3 , codons)
         protein_sequence.append(''.join([GENITIC_CODE[codon] for codon in coding_sequence]))
     return protein_sequence
