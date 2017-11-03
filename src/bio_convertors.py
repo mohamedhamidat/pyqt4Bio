@@ -1,7 +1,7 @@
 from itertools import takewhile
 
 DNA_RNA_PAIRS = {"A" : "U", "C": "G", "G" : "C", "T" : "A"}
-
+BASECOMPLEMENT = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
 GENITIC_CODE= {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
     'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
@@ -28,6 +28,12 @@ def clean_sequence(sequence):
 def dna_to_rna(sequence):
     sequence = clean_sequence(sequence)
     return sequence.upper().replace('T', 'U')
+
+def reverse_complement(sequence):
+    sequence = clean_sequence(sequence)
+    reversed_seq = sequence[::-1]
+    seq_reversed_complement = [BASECOMPLEMENT[base] for base in reversed_seq]
+    return "".join(seq_reversed_complement)
 
 def dna_to_protein(sequence):
     """
