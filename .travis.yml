@@ -1,0 +1,6 @@
+language: python
+python:
+  - 3.6
+install: 
+  - pip install unittest
+scipt: python -m unittest discover . "*_tests.py" 
