@@ -1,6 +1,7 @@
 import unittest
-import sys
-sys.path.insert(0, "../src")
+import sys, os
+myPath = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, myPath + '/../src')
 from bio_validators  import is_valid_dna
 
 class BiovalidatorsTests(unittest.TestCase):
