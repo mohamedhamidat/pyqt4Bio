@@ -12,7 +12,7 @@ class Bio_convertorsTests(unittest.TestCase):
         #Act
         rna = dna_to_rna(sequence)
         #Assert 
-        self.assertEqual(rna[""], "ACGU")
+        self.assertEqual(rna, "ACGU")
     
     def test_dna_to_protein(self): 
         #Arrange
