@@ -30,7 +30,7 @@ def reverse_complement(sequence):
 
 def dna_to_protein(sequence):
     """
-    return all possible protein (6 open frame)
+    return all possible protein (6 open frame) in frame: sequence pairs
     """
     protein_sequence = []
     for frame in range(3): 

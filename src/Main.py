@@ -35,19 +35,19 @@ class Main(QtGui.QMainWindow):
         """
         dna = self.ui.sequence_textEdit.toPlainText()
         message_color = COLOR_SUCCESS
-        messages = ["please check an option"]
+        message = ""
         try:
             if is_valid_dna(dna): 
                 clean_dna = clean_format_sequence(dna)
                 if self.ui.translate_to_rna_RadioBtn.isChecked():
-                    messages[0] = dna_to_rna(clean_dna)
+                    message = dna_to_rna(clean_dna)
                 elif self.ui.translate_to_prot_RadioBtn.isChecked():
-                    messages = dna_to_protein(clean_dna)
+                    message = dna_to_protein(clean_dna)
                 
                 else: # no option has been checked than raise this exception
                     raise ValueError("please check an option")
                 
-                self.display_result(messages, message_color)    
+                self.display_result(message, message_color)    
             
         except ValueError as ex:
             self.display_error(str(ex))
