@@ -34,27 +34,37 @@ class Main(QtGui.QMainWindow):
         raise ValueError if not valid
         """
         dna = self.ui.sequence_textEdit.toPlainText()
-        message_color = COLOR_ERROR
+        message_color = COLOR_SUCCESS
         messages = ["please check an option"]
         try:
             if is_valid_dna(dna): 
-                message_color = COLOR_SUCCESS
                 clean_dna = clean_format_sequence(dna)
                 if self.ui.translate_to_rna_RadioBtn.isChecked():
                     messages[0] = dna_to_rna(clean_dna)
                 elif self.ui.translate_to_prot_RadioBtn.isChecked():
                     messages = dna_to_protein(clean_dna)
                 
+                else: # no option has been checked than raise this exception
+                    raise ValueError("please check an option")
+                
+                self.display_result(messages, message_color)    
+            
         except ValueError as ex:
-            messages[0] = (str(ex))
+            self.display_error(str(ex))
 
-        self.display_result(messages, message_color)
 
     def display_result(self, messages, message_color):
         self.ui.result_textEdit.setEnabled(True)
         self.ui.result_textEdit.clear()
         self.ui.result_textEdit.setTextColor(message_color)
         self.ui.result_textEdit.setText("\n".join(messages))
+    
+    def display_error(self, message):
+        msg = QtGui.QMessageBox()
+        msg.setIcon(QtGui.QMessageBox.Warning)
+        msg.setWindowTitle("Error has been raised")
+        msg.setDetailedText(message)
+        msg.exec_()
         
 
         
