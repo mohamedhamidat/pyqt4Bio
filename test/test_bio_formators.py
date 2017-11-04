@@ -35,7 +35,7 @@ class TestBioFormators(unittest.TestCase):
         #Act
         string = format_gc_content(gc)
         #Assert 
-        self.assertEqual(string, "GC = 50.0%")
+        self.assertEqual(string, "GC = 50.00%")
 
 def main():
     unittest.main()

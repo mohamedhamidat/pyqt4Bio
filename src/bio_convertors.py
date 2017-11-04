@@ -29,6 +29,8 @@ def dna_to_rna(sequence):
 def gc_content(sequence):
     return float ((sequence.count('G') + sequence.count('C'))) / len(sequence)
 
+
+
 def reverse_complement(sequence):
     """
     reverse sequence and complement base
