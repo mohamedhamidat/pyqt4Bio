@@ -21,9 +21,20 @@ GENITIC_CODE = {
     'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',}
 
 def dna_to_rna(sequence):
+    """
+    replace T base to U base 
+    """
     return sequence.replace('T', 'U')
 
+def gc_content(sequence):
+    return float ((sequence.count('G') + sequence.count('C'))) / len(sequence)
+
 def reverse_complement(sequence):
+    """
+    reverse sequence and complement base
+    >>>reverse_complement(ATG)
+    >>> CAT
+    """
     reversed_seq = sequence[::-1]
     seq_reversed_complement = [BASECOMPLEMENT[base] for base in reversed_seq]
     return "".join(seq_reversed_complement)

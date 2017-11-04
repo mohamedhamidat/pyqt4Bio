@@ -11,4 +11,5 @@ def format_to_string(message):
     elif type(message) == str:
         return message
         
-
+def format_gc_content(gc_content):
+    return "GC = " + str(gc_content * 100) + "%"
