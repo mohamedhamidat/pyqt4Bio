@@ -15,11 +15,11 @@ class Bio_formatorsTests(unittest.TestCase):
     
     def test_dictionary_to_string(self):
         #Arrange
-        key_values = {">" : "ATGC"}   
+        key_values = {"1" : "ATGC", "2": "AAA"}   
         #Act
         string = dictionary_to_string(key_values)
         #Assert 
-        self.assertEqual(string, "> ATGC")
+        self.assertEqual(string, "1 ATGC\n2 AAA")
         
 
 def main():

@@ -12,7 +12,7 @@ from PyQt4 import QtGui, QtCore
 from window import Ui_QtBio
 from bio_validators import is_valid_dna
 from bio_convertors import dna_to_rna, dna_to_protein
-from bio_formators import clean_format_sequence
+from bio_formators import clean_format_sequence, dictionary_to_string
 
 HEIGHT = 800
 WIDTH = 1350
@@ -35,7 +35,7 @@ class Main(QtGui.QMainWindow):
         """
         dna = self.ui.sequence_textEdit.toPlainText()
         message_color = COLOR_SUCCESS
-        message = ""
+        message = {}
         try:
             if is_valid_dna(dna): 
                 clean_dna = clean_format_sequence(dna)
@@ -54,10 +54,11 @@ class Main(QtGui.QMainWindow):
 
 
     def display_result(self, messages, message_color):
+        message_text = dictionary_to_string(messages)
         self.ui.result_textEdit.setEnabled(True)
         self.ui.result_textEdit.clear()
         self.ui.result_textEdit.setTextColor(message_color)
-        self.ui.result_textEdit.setText("\n".join(messages))
+        self.ui.result_textEdit.setText(message_text)
     
     def display_error(self, message):
         msg = QtGui.QMessageBox()

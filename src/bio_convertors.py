@@ -21,7 +21,7 @@ GENITIC_CODE = {
     'TGC':'C', 'TGT':'C', 'TGA':'*', 'TGG':'W',}
 
 def dna_to_rna(sequence):
-    return sequence.replace('T', 'U')
+    return { "" : sequence.replace('T', 'U')}
 
 def reverse_complement(sequence):
     reversed_seq = sequence[::-1]
@@ -32,9 +32,16 @@ def dna_to_protein(sequence):
     """
     return all possible protein (6 open frame) in frame: sequence pairs
     """
-    protein_sequence = []
-    for frame in range(3): 
-        codons = [sequence[i:i+3] for i in range(frame, len(sequence), 3)]
-        coding_sequence  =  takewhile(lambda x: len(x) == 3 , codons)
-        protein_sequence.append(''.join([GENITIC_CODE[codon] for codon in coding_sequence]))
+    sequences = [sequence, reverse_complement(sequence)]
+    protein_sequence = {}
+    frame_number = 0
+    seq_count = 0
+    for seq in sequences: 
+        seq_count += 1
+        protein_sequence["sequence: " + str(seq_count)] =  seq
+        for frame in range(3): 
+            frame_number += 1
+            codons = [seq[i:i+3] for i in range(frame, len(seq), 3)]
+            coding_sequence  =  takewhile(lambda x: len(x) == 3 , codons)
+            protein_sequence["frame %d:"%frame_number] = ''.join([GENITIC_CODE[codon] for codon in coding_sequence])
     return protein_sequence
