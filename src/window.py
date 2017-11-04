@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\window.ui'
+# Form implementation generated from reading ui file 'window.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -33,10 +33,10 @@ class Ui_QtBio(object):
         self.centralwidget = QtGui.QWidget(QtBio)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.label = QtGui.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(30, 20, 241, 16))
+        self.label.setGeometry(QtCore.QRect(30, 10, 241, 41))
         self.label.setObjectName(_fromUtf8("label"))
         self.SubmitButton = QtGui.QPushButton(self.centralwidget)
-        self.SubmitButton.setGeometry(QtCore.QRect(1160, 230, 131, 61))
+        self.SubmitButton.setGeometry(QtCore.QRect(1160, 260, 131, 61))
         self.SubmitButton.setObjectName(_fromUtf8("SubmitButton"))
         self.translate_to_rna_RadioBtn = QtGui.QRadioButton(self.centralwidget)
         self.translate_to_rna_RadioBtn.setGeometry(QtCore.QRect(40, 250, 191, 27))
@@ -46,11 +46,14 @@ class Ui_QtBio(object):
         self.result_textEdit.setGeometry(QtCore.QRect(40, 350, 1251, 261))
         self.result_textEdit.setObjectName(_fromUtf8("result_textEdit"))
         self.sequence_textEdit = QtGui.QTextEdit(self.centralwidget)
-        self.sequence_textEdit.setGeometry(QtCore.QRect(30, 50, 1261, 171))
+        self.sequence_textEdit.setGeometry(QtCore.QRect(30, 60, 1261, 171))
         self.sequence_textEdit.setObjectName(_fromUtf8("sequence_textEdit"))
         self.translate_to_prot_RadioBtn = QtGui.QRadioButton(self.centralwidget)
         self.translate_to_prot_RadioBtn.setGeometry(QtCore.QRect(40, 280, 201, 27))
         self.translate_to_prot_RadioBtn.setObjectName(_fromUtf8("translate_to_prot_RadioBtn"))
+        self.reverse_complement_radioBtn = QtGui.QRadioButton(self.centralwidget)
+        self.reverse_complement_radioBtn.setGeometry(QtCore.QRect(250, 246, 221, 31))
+        self.reverse_complement_radioBtn.setObjectName(_fromUtf8("reverse_complement_radioBtn"))
         QtBio.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(QtBio)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1332, 36))
@@ -72,5 +75,6 @@ class Ui_QtBio(object):
         self.SubmitButton.setText(_translate("QtBio", "Submit", None))
         self.translate_to_rna_RadioBtn.setText(_translate("QtBio", "Translate to RNA", None))
         self.translate_to_prot_RadioBtn.setText(_translate("QtBio", "Translate to Protein", None))
+        self.reverse_complement_radioBtn.setText(_translate("QtBio", "Reverse complement", None))
         self.menuMenu.setTitle(_translate("QtBio", "Menu", None))
 
