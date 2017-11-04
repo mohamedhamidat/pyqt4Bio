@@ -2,7 +2,7 @@ import unittest
 import sys, os
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../src')
-from bio_formators import clean_format_sequence, dictionary_to_string
+from bio_formators import clean_format_sequence, format_to_string
 
 class Bio_formatorsTests(unittest.TestCase):
     def test_clean_sequence(self):
@@ -13,14 +13,21 @@ class Bio_formatorsTests(unittest.TestCase):
         #Assert 
         self.assertEqual(clean_seq, "TCAGG")
     
-    def test_dictionary_to_string(self):
+    def test_format_to_string_when_message_is_dict(self):
         #Arrange
         key_values = {"1" : "ATGC", "2": "AAA"}   
         #Act
-        string = dictionary_to_string(key_values)
+        string = format_to_string(key_values)
         #Assert 
         self.assertEqual(string, "1 ATGC\n2 AAA")
-        
+
+    def test_format_to_string_when_message_is_str(self):
+        #Arrange
+        message  = "ATG"  
+        #Act
+        string = format_to_string(message)
+        #Assert 
+        self.assertEqual(string, "ATG")
 
 def main():
     unittest.main()

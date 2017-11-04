@@ -12,7 +12,7 @@ from PyQt4 import QtGui, QtCore
 from window import Ui_QtBio
 from bio_validators import is_valid_dna
 from bio_convertors import dna_to_rna, dna_to_protein
-from bio_formators import clean_format_sequence, dictionary_to_string
+from bio_formators import clean_format_sequence, format_to_string
 
 HEIGHT = 800
 WIDTH = 1350
@@ -54,7 +54,7 @@ class Main(QtGui.QMainWindow):
 
 
     def display_result(self, messages, message_color):
-        message_text = dictionary_to_string(messages)
+        message_text = format_to_string(messages)
         self.ui.result_textEdit.setEnabled(True)
         self.ui.result_textEdit.clear()
         self.ui.result_textEdit.setTextColor(message_color)
