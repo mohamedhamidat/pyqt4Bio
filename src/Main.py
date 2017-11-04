@@ -11,7 +11,7 @@ __author__  = "Mohamed Hamidat, C# and python Developer, hamidatmohamed@yahoo.fr
 from PyQt4 import QtGui, QtCore
 from window import Ui_QtBio
 from bio_validators import is_valid_dna
-from bio_convertors import dna_to_rna, dna_to_protein
+from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement
 from bio_formators import clean_format_sequence, format_to_string
 
 HEIGHT = 800
@@ -43,6 +43,8 @@ class Main(QtGui.QMainWindow):
                     message = dna_to_rna(clean_dna)
                 elif self.ui.translate_to_prot_RadioBtn.isChecked():
                     message = dna_to_protein(clean_dna)
+                elif self.ui.reverse_complement_radioBtn.isChecked():
+                    message = reverse_complement(clean_dna)                
                 
                 else: # no option has been checked than raise this exception
                     raise ValueError("please check an option")
