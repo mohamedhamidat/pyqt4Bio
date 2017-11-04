@@ -65,8 +65,8 @@ class Main(QtGui.QMainWindow):
     def display_error(self, message):
         msg = QtGui.QMessageBox()
         msg.setIcon(QtGui.QMessageBox.Warning)
-        msg.setWindowTitle("Error has been raised")
-        msg.setDetailedText(message)
+        msg.setWindowTitle("Error")
+        msg.setInformativeText(message)
         msg.exec_()
         
 
