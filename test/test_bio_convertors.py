@@ -4,7 +4,7 @@ myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../src')
 from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement
 
-class Bio_convertorsTests(unittest.TestCase):
+class TestBioConvertors(unittest.TestCase):
 
     def test_dna_to_rna(self):
         #Arrange

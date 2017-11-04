@@ -4,7 +4,7 @@ myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../src')
 from bio_formators import clean_format_sequence, format_to_string
 
-class Bio_formatorsTests(unittest.TestCase):
+class TestBioFormators(unittest.TestCase):
     def test_clean_sequence(self):
         #Arrange
         sequence = ">TCAGg"   
