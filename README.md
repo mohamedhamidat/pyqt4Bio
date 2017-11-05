@@ -1,4 +1,6 @@
-﻿Hi everyone, 
+[![Build Status](https://travis-ci.org/mohamedhamidat/pyqt4Bio.svg?branch=development)](https://travis-ci.org/mohamedhamidat/pyqt4Bio)
+
+Hi everyone, 
  
 This project is in progress ..........
 
