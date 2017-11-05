@@ -1,4 +1,5 @@
-https://travis-ci.org/mohamedhamidat/pyqt4Bio.svg?branch=master
+[![Build Status](https://travis-ci.org/mohamedhamidat/pyqt4Bio.svg?branch=master)](https://travis-ci.org/mohamedhamidat/pyqt4Bio)
+
 
 Hi everyone, 
 This project is in progress ..........
