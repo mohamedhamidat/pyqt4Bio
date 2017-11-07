@@ -107,7 +107,7 @@
    <widget class="QRadioButton" name="reverse_complement_radioBtn">
     <property name="geometry">
      <rect>
-      <x>226</x>
+      <x>261</x>
       <y>247</y>
       <width>209</width>
       <height>27</height>
@@ -120,7 +120,7 @@
    <widget class="QRadioButton" name="gc_content_radioBtn">
     <property name="geometry">
      <rect>
-      <x>445</x>
+      <x>480</x>
       <y>247</y>
       <width>127</width>
       <height>27</height>

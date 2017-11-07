@@ -1,4 +1,5 @@
 import unittest
+from collections import OrderedDict
 import sys, os
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../src')
@@ -15,7 +16,9 @@ class TestBioFormators(unittest.TestCase):
     
     def test_format_to_string_when_message_is_dict(self):
         #Arrange
-        key_values = {"1" : "ATGC", "2": "AAA"}   
+        key_values = OrderedDict()
+        key_values['1'] = "ATGC"
+        key_values['2'] = "AAA" 
         #Act
         string = format_to_string(key_values)
         #Assert 

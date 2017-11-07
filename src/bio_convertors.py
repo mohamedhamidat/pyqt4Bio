@@ -1,4 +1,5 @@
 from itertools import takewhile
+from collections import OrderedDict
 
 DNA_RNA_PAIRS = {"A" : "U", "C": "G", "G" : "C", "T" : "A"}
 BASECOMPLEMENT = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'}
@@ -46,7 +47,7 @@ def dna_to_protein(sequence):
     return all possible protein (6 open frame) in frame: sequence pairs
     """
     sequences = [sequence, reverse_complement(sequence)]
-    protein_sequence = {}
+    protein_sequence = OrderedDict()
     frame_number = 0
     for seq in sequences: 
         protein_sequence[seq] =  ""
