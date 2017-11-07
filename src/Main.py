@@ -11,8 +11,8 @@ __author__  = "Mohamed Hamidat, C# and python Developer, hamidatmohamed@yahoo.fr
 from PyQt4 import QtGui, QtCore
 from window import Ui_QtBio
 from bio_validators import is_valid_dna
-from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement
-from bio_formators import clean_format_sequence, format_to_string
+from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement, gc_content
+from bio_formators import clean_format_sequence, format_to_string, format_gc_content
 
 HEIGHT = 800
 WIDTH = 1350
@@ -44,7 +44,10 @@ class Main(QtGui.QMainWindow):
                 elif self.ui.translate_to_prot_RadioBtn.isChecked():
                     message = dna_to_protein(clean_dna)
                 elif self.ui.reverse_complement_radioBtn.isChecked():
-                    message = reverse_complement(clean_dna)                
+                    message = reverse_complement(clean_dna)   
+                elif self.ui.gc_content_radioBtn.isChecked():
+                    gc = gc_content(clean_dna)
+                    message = format_gc_content(gc)                                
                 
                 else: # no option has been checked than raise this exception
                     raise ValueError("please check an option")
@@ -65,8 +68,8 @@ class Main(QtGui.QMainWindow):
     def display_error(self, message):
         msg = QtGui.QMessageBox()
         msg.setIcon(QtGui.QMessageBox.Warning)
-        msg.setWindowTitle("Error has been raised")
-        msg.setDetailedText(message)
+        msg.setWindowTitle("Error")
+        msg.setInformativeText(message)
         msg.exec_()
         
 

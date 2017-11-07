@@ -4,7 +4,7 @@ myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../src')
 from bio_validators  import is_valid_dna
 
-class BiovalidatorsTests(unittest.TestCase):
+class TestBiovalidators(unittest.TestCase):
     
     def test_is_valid_dna_should_raise_ValueErrorException_when_string_is_empty(self):
         with self.assertRaises(ValueError) as error:

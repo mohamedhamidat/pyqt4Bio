@@ -2,9 +2,9 @@ import unittest
 import sys, os
 myPath = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, myPath + '/../src')
-from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement
+from bio_convertors import dna_to_rna, dna_to_protein, reverse_complement, gc_content
 
-class Bio_convertorsTests(unittest.TestCase):
+class TestBioConvertors(unittest.TestCase):
 
     def test_dna_to_rna(self):
         #Arrange
@@ -12,7 +12,7 @@ class Bio_convertorsTests(unittest.TestCase):
         #Act
         rna = dna_to_rna(sequence)
         #Assert 
-        self.assertEqual(rna[""], "ACGU")
+        self.assertEqual(rna, "ACGU")
     
     def test_dna_to_protein(self): 
         #Arrange
@@ -29,6 +29,14 @@ class Bio_convertorsTests(unittest.TestCase):
         seq_reversed = reverse_complement(sequence)
         #Assert 
         self.assertEqual(seq_reversed, "CCTGA")
+
+    def test_gc_content(self):
+        #Arrange
+        sequence = "TCAGGA"   
+        #Act
+        gc = gc_content(sequence)
+        #Assert 
+        self.assertEqual(gc, 0.5)
         
 
 def main():
